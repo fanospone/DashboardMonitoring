@@ -1,0 +1,32 @@
+﻿body
+{
+    font-family : Arial;
+     font-size: 10pt;
+}
+.modalBackground {
+	background-color:Black;
+	filter:alpha(opacity=90);
+	opacity:0.8;
+}
+.modalPopup {
+	background-color:#FFFFFF;
+	border-width:0px;
+	border-style:hidden;
+	border-color:none;
+	padding-top:10px;
+	padding-left:10px;
+	width:400px;
+	height:220px;
+}
+
+@media screen and (max-width:360px){
+	.modalPopup, .modalBackground{
+		width:100%;
+	}
+}
+
+@media screen and (max-width:375px) {
+	.modalPopup, .modalBackground {
+		width: 95%;
+	}
+}
