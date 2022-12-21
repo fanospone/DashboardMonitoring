@@ -33,7 +33,7 @@
                                 <p>
                                     <b>MTD</b>
                                 </p>
-                                <table class="table table-bordered table-hover text-nowrap tableMTD" style="width: 100%">
+                                <table class="table table-bordered table-hover tableMTD" style="font-size: xx-small;">
                                     <thead>
                                        <%-- <tr>
                                             <th rowspan="2" colspan="2">NAME</th>
@@ -41,14 +41,14 @@
                                             <th colspan="3">PRODUCTIVITY</th>
                                         </tr>--%>
                                         <tr>
-                                            <th>SURVEYOR NAME</th>
-                                            <th>SLA 60<=</th>
-                                            <th>% SLA (60<=)</th>                                                    
-                                            <th>SLA 180<=</th>
-                                            <th>% SLA (180<=)</th>
-                                            <th>SUBMIT</th>
-                                            <th>PENDING</th>
-                                            <th>TOTAL</th>
+                                            <th style="width: 90px;">SURVEYOR NAME</th>
+                                            <th style="width: 20px;">SLA 60<=</th>
+                                            <th style="width: 20px;">% SLA (60<=)</th>                                                    
+                                            <th style="width: 20px;">SLA 180<=</th>
+                                            <th style="width: 20px;">% SLA (180<=)</th>
+                                            <th style="width: 20px;">SUBMIT</th>
+                                            <th style="width: 20px;">PENDING</th>
+                                            <th style="width: 20px;">TOTAL</th>
                                         </tr>
                                     </thead>
                                 </table>
@@ -57,7 +57,7 @@
                                 <p>
                                     <b>DAILY</b>
                                 </p>
-                                <table class="table table-bordered table-hover text-nowrap tableDAILY" style="width: 100%" >
+                                <table class="table table-bordered table-hover tableDAILY" style="font-size: xx-small;">
                                     <thead>
                                         <%--<tr>
                                             <th rowspan="2" colspan="2">name</th>
@@ -65,14 +65,14 @@
                                             <th colspan="3">productivity</th>
                                         </tr>--%>
                                         <tr>
-                                            <th>SURVEYOR NAME</th>
-                                            <th>SLA 60<=</th>
-                                            <th>% SLA (60<=)</th>                                                    
-                                            <th>SLA 180<=</th>
-                                            <th>% SLA (180<=)</th>
-                                            <th>SUBMIT</th>
-                                            <th>PENDING</th>
-                                            <th>TOTAL</th>
+                                            <th style="width: 90px;">SURVEYOR NAME</th>
+                                            <th style="width: 20px;">SLA 60<=</th>
+                                            <th style="width: 20px;">% SLA (60<=)</th>                                                    
+                                            <th style="width: 20px;">SLA 180<=</th>
+                                            <th style="width: 20px;">% SLA (180<=)</th>
+                                            <th style="width: 20px;">SUBMIT</th>
+                                            <th style="width: 20px;">PENDING</th>
+                                            <th style="width: 20px;">TOTAL</th>
                                         </tr>
                                     </thead>
                                 </table>
@@ -124,22 +124,22 @@
         var AchiveSLALastMonth;
 
         $(document).ready(function () {
-            $("#form-body").loading("toggle");
+            $("#form-body").loading("start");
             Form.Button();
             Load.DataMTD();
             Load.DataDaily();
             Load.DataSLAToday();
-            $("#form-body").loading("stop");
+            //$("#form-body").loading("stop");
         });
         var Form = {
             Button: function () {
                 $("#btnSearch").click(function () {
-                    $("#form-body").loading("toggle");
+                    $("#form-body").loading("start");
                     Load.DataMTD();
                     Load.DataDaily();
                     Load.DataSLAToday();
 
-                    $("#form-body").loading("stop");
+                    //$("#form-body").loading("stop");
                 });
             }
         }
@@ -158,12 +158,12 @@
                         /*OnSuccess(data.d);*/
                         $(".tableMTD").DataTable(
                             {
-                                paging: false,
-                                searching: false,
+                                paging: true,
+                                searching: true,
                                 bLengthChange: true,
                                 lengthMenu: [[10, 25, -1], [10, 25, "All"]],
                                 bFilter: true,
-                                bSort: true,
+                                bSort: false,
                                 bPaginate: true,
                                 bDestroy: true,
                                 scrollX: true,
@@ -201,12 +201,12 @@
                         /*OnSuccess(data.d);*/
                         $(".tableDAILY").DataTable(
                             {
-                                paging: false,
-                                searching: false,
+                                paging: true,
+                                searching: true,
                                 bLengthChange: true,
                                 lengthMenu: [[10, 25, -1], [10, 25, "All"]],
                                 bfilter: true,
-                                bsort: true,
+                                bsort: false,
                                 bpaginate: true,
                                 bDestroy: true,
                                 scrollX: true,
@@ -335,7 +335,7 @@
                                     },
                                     color: '#FF2D2D'
                                 },
-                                {
+                                {   
                                     type: 'spline',
                                     name: 'Achive. SLA This Month',
                                     data: JSON.parse(data.d.AchiveNOW),//AchiveSLAThisMonth = data.d.AchiveNOW;
@@ -386,6 +386,7 @@
                         $("#form-body").loading("stop");
                     }
                 });
+                $("#form-body").loading("stop");
             },         
         }
          
@@ -421,6 +422,7 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <link href="Styles/css/loading.css" rel="stylesheet" />
     <script src="Styles/js/jquery.loading.js"></script>
     <style type="text/css">
         .highcharts-figure,

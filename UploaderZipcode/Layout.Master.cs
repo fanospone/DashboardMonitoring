@@ -121,6 +121,11 @@ namespace UploaderZipcode
                 //            "<i class=\"material-icons\" style=\"color:#747474\">dashboard</i>" +
                 //            "<span style=\"color:#333\">Email Setting</span>" +
                 //        "</a></li>";
+                menu += "<li class=\"active\">";
+                menu += "<a href =\"DashboardHome.aspx\">" +
+                            "<i class=\"material-icons\" style=\"color:#747474\">home</i>" +
+                            "<span style=\"color:#333\">Home</span>" +
+                        "</a></li>";
 
                 if (Position == "ADMIN" || Position == "ADMIN_AR")
                 {
@@ -175,13 +180,6 @@ namespace UploaderZipcode
 
                     menu += "</ul></li>";
                 }
-
-                menu += "<li class=\"active\">";
-                menu += "<a href =\"DashboardHome.aspx\">" +
-                            "<i class=\"material-icons\" style=\"color:#747474\">home</i>" +
-                            "<span style=\"color:#333\">Home</span>" +
-                        "</a></li>";
-
 
                 //menu += temp == "1" ? "<li class=\"active\">" : "<li>";
                 //menu += "<a href = \"javascript:void(0);\" class=\"menu-toggle\">" +
